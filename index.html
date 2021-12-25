@@ -29,6 +29,14 @@
 				font-size: 14px;
 				cursor: pointer;
 			}
+
+			#heightSlider {
+				position: fixed;
+				right: 0px; bottom: 0px;
+				width: 100px;
+				height:100px;
+				padding: 5px;
+			}
         </style>
     </head>
 
@@ -44,6 +52,9 @@
 					Look: MOUSE
 				</p>
 			</div>
+		</div>
+		<div id="heightSlider">
+			<input type="range" min="0" max="10" value="1.25" step="0.1" id="slider" orient="vertical" style="position:absolute;transform: rotate(270deg);">
 		</div>
         <script type="module" src="bundle.js"></script>
     </body>
