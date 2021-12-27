@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mogivi - Home Viewer</title>
+        <style>
+            body {
+                overflow: hidden;
+                margin: 0px;
+            }
+			#blocker {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.5);
+			}
+
+			#instructions {
+				width: 100%;
+				height: 100%;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				text-align: center;
+				font-size: 14px;
+				cursor: pointer;
+			}
+
+			#heightSlider {
+				position: fixed;
+				right: 0px; bottom: 0px;
+				width: 100px;
+				height:100px;
+				padding: 5px;
+			}
+        </style>
+    </head>
+
+    <body>
+        <div id="blocker">
+			<div id="instructions">
+				<p style="font-size:36px">
+					Click to play
+				</p>
+				<p>
+					Move: WASD<br/>
+					Jump: SPACE<br/>
+					Look: MOUSE
+				</p>
+			</div>
+		</div>
+		<div id="heightSlider">
+			<input type="range" min="0" max="10" value="1.25" step="0.1" id="slider" orient="vertical" style="position:absolute;transform: rotate(270deg);">
+		</div>
+        <script type="module" src="bundle.js"></script>
+    </body>
+</html>
