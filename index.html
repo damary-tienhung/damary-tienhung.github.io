@@ -10,6 +10,18 @@
 		body {
 			overflow: hidden;
 			margin: 0px;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+
+		#canvas {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			user-select: none;
 		}
 
 		#blocker {
@@ -17,13 +29,14 @@
 			width: 100%;
 			height: 100%;
 			background-color: rgba(0, 0, 0, 0.5);
+			display: none;
 		}
 
 		#instructions {
 			width: 100%;
 			height: 100%;
 
-			display: flex;
+			display: none;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
@@ -82,18 +95,41 @@
 			user-select: none;
 		}
 
-		/* #portrait_block {
+		#loading {
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, 1);
-			display: none;
+			background-color: white;
+			display: block;
 			text-align: center;
-		} */
+		}
 
 		.phone {
-			display: none;
+			position: relative;
+			display: block;
 			margin: auto;
+			color: white;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+
+		.phone img {
+			display: block;
+			margin: auto;
+			color: white;
+		}
+
+		#loadingText {
+			position: relative;
+			display: block;
+			margin: auto;
+			color: black;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
 		}
 
 		/* @media only screen and (orientation: portrait) {
@@ -112,31 +148,35 @@
 </head>
 
 <body>
-	<div id="blocker">
-		<div id="instructions">
-			<p style="font-size:36px">
-				Click để bắt đầu tham quan
-			</p>
-			<p>
-				Di chuyển bằng các phím: W, A, S, D<br />
-				Nhìn xung quanh bằng cách rê chuột.
-			</p>
+	<div id="canvas">
+		<div id="blocker">
+			<div id="instructions">
+				<p style="font-size:36px">
+					Click để bắt đầu tham quan
+				</p>
+				<p>
+					Di chuyển bằng các phím: W, A, S, D<br />
+					Nhìn xung quanh bằng cách rê chuột.
+				</p>
+			</div>
+		</div>
+		<div id="heightSlider">
+			<input type="range" step="0.1" id="slider" />
+			Chiều cao camera
+		</div>
+		<!-- <div id="footstep">
+			<img src="./img/footstep.png" width="75px" height="75px" style="margin-right: 235px;" />
+		</div> -->
+		<div id="left_joystick"></div>
+		<div id="loading">
+			<div class="phone">
+				<img src="./img/mogivi-logo.png" />
+			</div>
+			<div id='loadingText'>
+				Đang tải: 0%.
+			</div>
 		</div>
 	</div>
-	<div id="heightSlider">
-		<input type="range" step="0.1" id="slider" />
-		Chiều cao camera
-	</div>
-	<!-- <div id="footstep">
-		<img src="./img/footstep.png" width="75px" height="75px" style="margin-right: 235px;" />
-	</div> -->
-	<div id="left_joystick"></div>
-	<!-- <div id="portrait_block">
-		<div class="phone">
-			<img src="./img/rotate.png" width="75%" height="75%" style="margin: auto;" />
-		</div>
-	</div> -->
-
 	<script type="module" src="bundle.js"></script>
 </body>
 
